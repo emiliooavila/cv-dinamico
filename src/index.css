@@ -76,20 +76,24 @@ h1 {
   font-size: 56px;
   letter-spacing: -1.68px;
   margin: 32px 0;
+
   @media (max-width: 1024px) {
     font-size: 36px;
     margin: 20px 0;
   }
 }
+
 h2 {
   font-size: 24px;
   line-height: 118%;
   letter-spacing: -0.24px;
   margin: 0 0 8px;
+
   @media (max-width: 1024px) {
     font-size: 20px;
   }
 }
+
 p {
   margin: 0;
 }
@@ -107,4 +111,106 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+/* CV Sheet Layout Styles */
+.cv-section {
+  margin-bottom: 22px;
+}
+
+.cv-section-title {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--accent);
+  border-bottom: 1.5px solid var(--border);
+  padding-bottom: 4px;
+  margin: 0 0 12px 0;
+  text-align: left;
+  transition: border-color 0.3s ease;
+}
+
+.cv-item {
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+.cv-item:last-child {
+  margin-bottom: 0;
+}
+
+@media print {
+
+  nav,
+  .no-print,
+  #root>nav,
+  button,
+  a.no-print {
+    display: none !important;
+  }
+
+  @page {
+    size: A4;
+    margin: 1.5cm 1.5cm;
+  }
+
+  html,
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 11px !important;
+  }
+
+  #root {
+    width: 100% !important;
+    max-width: 100% !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: auto !important;
+  }
+
+  :root,
+  :root.dark {
+    --bg: #ffffff !important;
+    --text-h: #000000 !important;
+    --text: #2d3748 !important;
+    --border: #cbd5e1 !important;
+    --code-bg: #f8fafc !important;
+    --accent: #4f46e5 !important;
+    --accent-bg: #f0fdf4 !important;
+  }
+
+  #cv-preview-document.cv-sheet {
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .cv-item,
+  .cv-section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .cv-body-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 30px !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 }
