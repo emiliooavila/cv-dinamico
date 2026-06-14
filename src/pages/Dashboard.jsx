@@ -22,7 +22,16 @@ export default function Dashboard() {
 
   return (
     <div style={{ padding: '40px 20px', maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
-      <h1 style={{ marginBottom: '10px', color: 'var(--text-h)', fontWeight: '800' }}>Dashboard de Habilidades</h1>
+      <h1 style={{ 
+        fontFamily: 'var(--display)', 
+        fontWeight: '800', 
+        color: 'var(--accent)', 
+        fontSize: '3.5rem', 
+        margin: '0 0 15px 0', 
+        letterSpacing: '-1px' 
+      }}>
+        Dashboard
+      </h1>
       <p style={{ marginBottom: '40px', color: 'var(--text)', fontSize: '1.1rem' }}>
         Resumen visual de tus áreas de conocimiento.
       </p>

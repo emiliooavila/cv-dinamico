@@ -23,20 +23,28 @@ export default function Home() {
       padding: '60px 20px', 
       maxWidth: '900px', 
       margin: '0 auto', 
-      textAlign: 'center',
-      fontFamily: "'Inter', system-ui, -apple-system, sans-serif"
+      textAlign: 'center'
+      /* ¡Se eliminó fontFamily: 'Inter' para heredar Google Sans del CSS global! */
     }}>
       {/* Hero Section */}
       <div style={{ marginBottom: '50px' }}>
         <h1 style={{ 
           fontSize: '3.5rem', 
-          fontWeight: '900', 
+          fontWeight: '400', /* Google Sans Regular */
           color: 'var(--text-h)', 
           margin: '0 0 16px 0', 
           letterSpacing: '-1.5px',
-          lineHeight: '1.1'
+          lineHeight: '1.2'
         }}>
-          Crea tu CV Profesional con <span style={{ color: 'var(--accent)' }}>DevProfile</span>
+          Crea tu CV Profesional con <br />
+          <span style={{ 
+            color: 'var(--accent)', 
+            fontFamily: 'var(--display)', /* Aplicamos Syne ExtraBold */
+            fontWeight: '800',
+            fontSize: '4.2rem',
+            display: 'inline-block',
+            marginTop: '10px'
+          }}>DevProfile</span>
         </h1>
         <p style={{ 
           fontSize: '1.25rem', 
@@ -62,7 +70,7 @@ export default function Home() {
             color: '#ffffff', 
             textDecoration: 'none', 
             borderRadius: '8px', 
-            fontWeight: '700', 
+            fontWeight: '600', /* Cambiado a 600 */
             fontSize: '1rem',
             boxShadow: '0 4px 10px rgba(170, 59, 255, 0.3)',
             transition: 'all 0.2s'
@@ -70,7 +78,7 @@ export default function Home() {
           onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
           onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
           >
-            Comenzar Editor
+            Comienza a crear tu CV
           </Link>
           
           <button 
@@ -81,7 +89,7 @@ export default function Home() {
               color: 'var(--text-h)', 
               border: '1px solid var(--border)', 
               borderRadius: '8px', 
-              fontWeight: '700', 
+              fontWeight: '600', /* Cambiado a 600 */
               fontSize: '1rem',
               cursor: 'pointer',
               boxShadow: 'var(--shadow)',
@@ -140,7 +148,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Reset Data - Admin zone */}
+      {/* Reset Data */}
       {cvData.personalData.fullName && (
         <div style={{ 
           padding: '20px', 
@@ -154,7 +162,7 @@ export default function Home() {
           gap: '15px'
         }}>
           <div style={{ textAlign: 'left' }}>
-            <span style={{ fontWeight: '700', color: 'var(--text-h)', display: 'block' }}>Datos actualmente guardados</span>
+            <span style={{ fontWeight: '600', color: 'var(--text-h)', display: 'block' }}>Datos actualmente guardados</span>
             <span style={{ fontSize: '0.85rem', color: 'var(--text)' }}>Tienes información de <strong>{cvData.personalData.fullName}</strong> en la caché local.</span>
           </div>
           <button 
@@ -199,7 +207,7 @@ const iconContainerStyle = {
 const cardTitleStyle = {
   margin: '0 0 8px 0',
   fontSize: '1.15rem',
-  fontWeight: '700',
+  fontWeight: '600', /* Cambiado a 600 */
   color: 'var(--text-h)'
 };
 

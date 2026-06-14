@@ -4,11 +4,18 @@ export default function About() {
       padding: '40px 20px', 
       maxWidth: '850px', 
       margin: '0 auto',
-      textAlign: 'left',
-      fontFamily: "'Inter', system-ui, -apple-system, sans-serif"
+      textAlign: 'left'
     }}>
-      <h1 style={{ textAlign: 'center', marginBottom: '10px', fontSize: '2.5rem', fontWeight: '800', color: 'var(--text-h)' }}>
-        Acerca del Proyecto
+      <h1 style={{ 
+        fontFamily: 'var(--display)', 
+        fontWeight: '800', 
+        color: 'var(--accent)', 
+        fontSize: '3.5rem', 
+        margin: '0 0 15px 0', 
+        letterSpacing: '-1px',
+        textAlign: 'center'
+      }}>
+        Acerca de
       </h1>
       <p style={{ textAlign: 'center', color: 'var(--text)', marginBottom: '40px', fontSize: '1.1rem' }}>
         Información académica, estructura del software y equipo desarrollador de <strong>DevProfile</strong>.
