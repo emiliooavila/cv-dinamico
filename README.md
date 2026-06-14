@@ -1,7 +1,7 @@
 # DevProfile: Generador Dinámico de CV en PDF
 
 ### **Universidad Autónoma de Aguascalientes**
-**Centro de Ciencias Básicas** **Departamento de Ciencias de la Computación** **Materia:** Tecnologías Web / React (Semestre 2026-A)  
+**Centro de Ciencias Básicas** **Departamento de Ciencias de la Computación** **Materia:** Tecnologías Web / React  
 **Profesor:** Ing. Irving Cardona  
 
 **Desarrollado por:** * **Jorge Emilio Avila Valadez** (Ingeniería en Sistemas Computacionales, 6° Semestre)  
@@ -20,7 +20,7 @@ La interfaz destaca por una estética vanguardista basada en el efecto **Liquid 
 ## ✨ Características Principales
 
 1. **Arquitectura de Estado Centralizado:** Toda la información recolectada se distribuye en un árbol JSON global síncrono. Las altas y bajas (CRUD) se reflejan de inmediato en todas las pantallas.
-2. **Efecto Liquid Glass (Apple Style):** Paneles esmerilados con bordes ultra-suavizados y sombras volumétricas superpuestas en una malla fija de gradientes radiales fijos en el fondo.
+2. **Efecto Liquid Glass:** Paneles esmerilados con bordes ultra-suavizados y sombras volumétricas superpuestas en una malla fija de gradientes radiales fijos en el fondo.
 3. **Persistencia Automática:** Integración síncrona con el ciclo de vida de `localStorage`, lo que previene la pérdida de datos tras recargas accidentales.
 4. **Pill Selector con Animación Fluida:** El indicador de la pestaña activa en la barra de navegación persigue el clic del usuario usando físicas elásticas (*spring physics*) compartidas de Framer Motion.
 5. **Dashboard Gráfico en Tiempo Real:** Automatización del agrupamiento por categorías de habilidades del usuario para graficar proporciones de barras reactivas con soporte adaptativo (*Responsive*).
@@ -39,5 +39,3 @@ La interfaz destaca por una estética vanguardista basada en el efecto **Liquid 
 * **Persistencia:** Web Storage API (Local Storage síncrono).
 
 ---
-
-## 📂 Arquitectura del Software
