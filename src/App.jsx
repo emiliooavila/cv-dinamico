@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { CVProvider } from './context/CVContext';
 
 import Navbar from './components/Navbar';
@@ -11,7 +11,7 @@ import About from './pages/About';
 function App() {
   return (
     <CVProvider>
-      <BrowserRouter>
+      <Router>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -20,7 +20,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/about" element={<About />} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </CVProvider>
   );
 }
