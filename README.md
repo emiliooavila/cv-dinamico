@@ -1,12 +1,12 @@
 # DevProfile: Generador Dinámico de CV en PDF
 
 ### **Universidad Autónoma de Aguascalientes**
-**Centro de Ciencias Básicas** **Departamento de Ciencias de la Computación** **Materia:** Tecnologías Web / React  
+**Centro de Ciencias Básicas** **Departamento de Sistemas Computacionales** **Materia:** Tecnologías Web
 **Profesor:** Ing. Irving Cardona  
 
 **Desarrollado por:**
 * **Jorge Emilio Avila Valadez** 
-* **Diego Abraham Delgado Rodríguez** (Ingeniería en Sistemas Computacionales, 6° Semestre)  
+* **Diego Abraham Delgado Rodríguez**  
 
 ---
 
