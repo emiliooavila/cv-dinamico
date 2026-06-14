@@ -4,12 +4,12 @@
 **Centro de Ciencias Básicas** **Departamento de Ciencias de la Computación** **Materia:** Tecnologías Web / React  
 **Profesor:** Ing. Irving Cardona  
 
-**Desarrollado por:** * **Jorge Emilio Avila Valadez** (Ingeniería en Sistemas Computacionales, 6° Semestre)  
+**Desarrollado por:** **Jorge Emilio Avila Valadez** (Ingeniería en Sistemas Computacionales, 6° Semestre)  
 * **Diego Abraham Delgado Rodríguez** (Ingeniería en Sistemas Computacionales, 6° Semestre)  
 
 ---
 
-## 📝 Descripción del Proyecto
+## Descripción del Proyecto
 
 **DevProfile** es una aplicación web SPA (Single Page Application) desarrollada en **React** y **Vite**, diseñada específicamente para la creación, gestión y exportación automatizada de currículums profesionales. 
 
@@ -17,7 +17,7 @@ La interfaz destaca por una estética vanguardista basada en el efecto **Liquid 
 
 ---
 
-## ✨ Características Principales
+## Características Principales
 
 1. **Arquitectura de Estado Centralizado:** Toda la información recolectada se distribuye en un árbol JSON global síncrono. Las altas y bajas (CRUD) se reflejan de inmediato en todas las pantallas.
 2. **Efecto Liquid Glass:** Paneles esmerilados con bordes ultra-suavizados y sombras volumétricas superpuestas en una malla fija de gradientes radiales fijos en el fondo.
@@ -29,7 +29,7 @@ La interfaz destaca por una estética vanguardista basada en el efecto **Liquid 
 
 ---
 
-## 🛠️ Stack Tecnológico
+## Stack Tecnológico
 
 * **Core:** React 18 & Vite (Ecosistema ESM nativo y compilación ultrarrápida).
 * **Enrutamiento:** React Router DOM v6 (SPA sin recarga).
