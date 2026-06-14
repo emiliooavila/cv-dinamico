@@ -52,88 +52,125 @@ export default function SkillForm() {
   };
 
   return (
-    <section style={{ border: '1px solid #ccc', padding: '20px', margin: '20px 0' }}>
-      <h2>Habilidades</h2>
+    <section className="glass-panel" style={{ padding: '40px', margin: '30px auto', maxWidth: '800px', textAlign: 'left' }}>
+      <h2 style={{ marginBottom: '25px', color: 'var(--text-h)', fontWeight: '800' }}>Habilidades</h2>
       
       <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: '10px' }}>
-          <label>Nombre de la Habilidad: </label>
-          <input 
-            type="text" 
-            name="name" 
-            value={skillInput.name} 
-            onChange={handleChange} 
-          />
-          {errors.name && <p style={{ color: 'red', margin: 0 }}>{errors.name}</p>}
-          {errors.duplicate && <p style={{ color: 'red', margin: 0 }}>{errors.duplicate}</p>}
+        <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', marginBottom: '20px' }}>
+          <div style={{ flex: '1', minWidth: '200px' }}>
+            <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600', color: 'var(--text-h)' }}>Nombre de la Habilidad: </label>
+            <input 
+              type="text" 
+              name="name" 
+              value={skillInput.name} 
+              onChange={handleChange} 
+              className="glass-input"
+              placeholder="Ej. React, SQL, Diseño UX..."
+            />
+            {errors.name && <p style={{ color: '#ff4d4f', margin: '5px 0 0 0', fontSize: '0.85rem' }}>{errors.name}</p>}
+            {errors.duplicate && <p style={{ color: '#ff4d4f', margin: '5px 0 0 0', fontSize: '0.85rem' }}>{errors.duplicate}</p>}
+          </div>
+
+          <div style={{ flex: '1', minWidth: '200px' }}>
+            <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600', color: 'var(--text-h)' }}>Categoría: </label>
+            <input 
+              type="text" 
+              name="category" 
+              value={skillInput.category} 
+              onChange={handleChange} 
+              className="glass-input"
+              placeholder="Ej. Programación, Diseño..."
+            />
+            {errors.category && <p style={{ color: '#ff4d4f', margin: '5px 0 0 0', fontSize: '0.85rem' }}>{errors.category}</p>}
+          </div>
         </div>
 
-        <div style={{ marginBottom: '10px' }}>
-          <label>Categoría: </label>
-          <input 
-            type="text" 
-            name="category" 
-            value={skillInput.category} 
-            onChange={handleChange} 
-            placeholder="Ej. Programación, Diseño..."
-          />
-          {errors.category && <p style={{ color: 'red', margin: 0 }}>{errors.category}</p>}
-        </div>
-
-        <div style={{ marginBottom: '10px' }}>
-          <label>Nivel de Dominio: </label>
+        <div style={{ marginBottom: '20px' }}>
+          <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600', color: 'var(--text-h)' }}>Nivel de Dominio: </label>
           <select 
             name="level" 
             value={skillInput.level} 
             onChange={handleChange}
+            className="glass-input"
+            style={{ cursor: 'pointer' }}
           >
-            <option value="">Selecciona un nivel</option>
-            <option value="Básico">Básico</option>
-            <option value="Intermedio">Intermedio</option>
-            <option value="Avanzado">Avanzado</option>
+            <option value="" style={{ color: 'black' }}>Selecciona un nivel</option>
+            <option value="Básico" style={{ color: 'black' }}>Básico</option>
+            <option value="Intermedio" style={{ color: 'black' }}>Intermedio</option>
+            <option value="Avanzado" style={{ color: 'black' }}>Avanzado</option>
           </select>
-          {errors.level && <p style={{ color: 'red', margin: 0 }}>{errors.level}</p>}
+          {errors.level && <p style={{ color: '#ff4d4f', margin: '5px 0 0 0', fontSize: '0.85rem' }}>{errors.level}</p>}
         </div>
 
-        <div style={{ marginBottom: '10px' }}>
-          <label>Descripción breve: </label>
+        <div style={{ marginBottom: '25px' }}>
+          <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600', color: 'var(--text-h)' }}>Descripción breve: </label>
           <textarea 
             name="description" 
             value={skillInput.description} 
             onChange={handleChange} 
             rows="2"
-            style={{ width: '100%', resize: 'vertical' }}
+            className="glass-input"
+            style={{ resize: 'vertical' }}
+            placeholder="Añade detalles sobre tu experiencia con esta habilidad..."
           />
         </div>
 
-        <button type="submit">Agregar Habilidad</button>
+        <button type="submit" className="glass-button">Agregar Habilidad</button>
       </form>
 
-      <div style={{ marginTop: '20px' }}>
-        <h3>Habilidades Agregadas ({skills.length})</h3>
+      <div style={{ marginTop: '35px' }}>
+        <h3 style={{ color: 'var(--text-h)', marginBottom: '20px', fontSize: '1.2rem', fontWeight: '700' }}>
+          Habilidades Agregadas ({skills.length})
+        </h3>
         {skills.length === 0 ? (
-          <p>Aún no has agregado habilidades.</p>
+          <p style={{ color: 'var(--text)', fontStyle: 'italic' }}>Aún no has agregado habilidades.</p>
         ) : (
           <ul style={{ listStyleType: 'none', padding: 0 }}>
             {skills.map((skill) => (
               <li 
                 key={skill.id} 
                 style={{ 
-                  border: '1px solid #eee', 
-                  padding: '10px', 
-                  marginBottom: '10px', 
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: '16px',
+                  padding: '16px 20px', 
+                  marginBottom: '12px', 
                   display: 'flex', 
                   justifyContent: 'space-between',
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  boxShadow: '0 4px 6px rgba(0,0,0,0.05)'
                 }}
               >
                 <div>
-                  <strong>{skill.name}</strong> ({skill.category}) - {skill.level}
-                  <p style={{ margin: '5px 0 0 0', fontSize: '14px' }}>{skill.description}</p>
+                  <strong style={{ color: 'var(--text-h)', fontSize: '1.05rem' }}>{skill.name}</strong> 
+                  <span style={{ color: 'var(--accent)', marginLeft: '8px', fontSize: '0.9rem', fontWeight: '600' }}>({skill.category})</span> 
+                  <span style={{ color: 'var(--text)', marginLeft: '8px', fontSize: '0.9rem' }}>- {skill.level}</span>
+                  {skill.description && (
+                    <p style={{ margin: '8px 0 0 0', fontSize: '0.85rem', color: 'var(--text)', lineHeight: '1.4' }}>{skill.description}</p>
+                  )}
                 </div>
                 <button 
                   onClick={() => deleteItem('skills', skill.id)}
-                  style={{ backgroundColor: 'red', color: 'white', border: 'none', padding: '5px 10px', cursor: 'pointer' }}
+                  style={{ 
+                    backgroundColor: 'rgba(255, 77, 79, 0.1)', 
+                    color: '#ff4d4f', 
+                    border: '1px solid rgba(255, 77, 79, 0.3)', 
+                    padding: '8px 16px', 
+                    borderRadius: '12px', 
+                    cursor: 'pointer',
+                    fontWeight: '600',
+                    transition: 'all 0.2s',
+                    flexShrink: 0,
+                    marginLeft: '15px'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = '#ff4d4f';
+                    e.currentTarget.style.color = '#fff';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'rgba(255, 77, 79, 0.1)';
+                    e.currentTarget.style.color = '#ff4d4f';
+                  }}
                 >
                   Eliminar
                 </button>

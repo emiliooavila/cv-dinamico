@@ -6,7 +6,6 @@ export function useTheme() {
     if (savedTheme) {
       return savedTheme;
     }
-    // Si no hay preferencia guardada, verificar la del sistema
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     return systemPrefersDark ? 'dark' : 'light';
   });

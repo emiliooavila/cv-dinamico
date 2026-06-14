@@ -1,56 +1,120 @@
 :root {
   --text: #6b6375;
   --text-h: #08060d;
-  --bg: #fff;
+  --body-bg: radial-gradient(circle at 15% 50%, rgba(112, 56, 255, 0.08), transparent 50%),
+             radial-gradient(circle at 85% 20%, rgba(0, 212, 255, 0.08), transparent 50%),
+             radial-gradient(circle at 50% 80%, rgba(255, 56, 112, 0.05), transparent 50%),
+             #f4f3ec;
+  --glass-bg: rgba(255, 255, 255, 0.3);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
   --border: #e5e4e7;
-  --code-bg: #f4f3ec;
+  --code-bg: #ffffff;
   --accent: #aa3bff;
   --accent-bg: rgba(170, 59, 255, 0.1);
   --accent-border: rgba(170, 59, 255, 0.5);
   --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
+  --shadow: rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
-  color-scheme: light dark;
+  color-scheme: light;
   color: var(--text);
-  background: var(--bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
 }
 
 :root.dark {
   --text: #9ca3af;
   --text-h: #f3f4f6;
-  --bg: #16171d;
+  --body-bg: radial-gradient(circle at 15% 50%, rgba(112, 56, 255, 0.15), transparent 40%),
+             radial-gradient(circle at 85% 20%, rgba(0, 212, 255, 0.15), transparent 40%),
+             radial-gradient(circle at 50% 80%, rgba(255, 56, 112, 0.1), transparent 40%),
+             #0b0f19;
+  --glass-bg: rgba(15, 15, 20, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.03);
+  --glass-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.4);
   --border: #2e303a;
   --code-bg: #1f2028;
   --accent: #c084fc;
   --accent-bg: rgba(192, 132, 252, 0.15);
   --accent-border: rgba(192, 132, 252, 0.5);
   --social-bg: rgba(47, 48, 58, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+  --shadow: rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  color-scheme: dark;
 }
-
 
 body {
   margin: 0;
+  background: var(--body-bg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 32px; 
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 14px 18px;
+  color: var(--text-h);
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  transition: all 0.3s ease;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+}
+
+.glass-input:focus {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-bg);
+}
+
+.dark .glass-input {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dark .glass-input:focus {
+  background: rgba(0, 0, 0, 0.4);
+  border-color: var(--accent);
+}
+
+.glass-button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 24px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px var(--accent-bg);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  margin-top: 15px;
+}
+
+.glass-button:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+  box-shadow: 0 8px 25px var(--accent-bg);
 }
 
 #root {
@@ -58,15 +122,13 @@ body {
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
-  border-inline: 1px solid var(--border);
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
 }
 
-h1,
-h2 {
+h1, h2 {
   font-family: var(--heading);
   font-weight: 500;
   color: var(--text-h);
@@ -76,11 +138,6 @@ h1 {
   font-size: 56px;
   letter-spacing: -1.68px;
   margin: 32px 0;
-
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
 }
 
 h2 {
@@ -88,18 +145,13 @@ h2 {
   line-height: 118%;
   letter-spacing: -0.24px;
   margin: 0 0 8px;
-
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
 }
 
 p {
   margin: 0;
 }
 
-code,
-.counter {
+code, .counter {
   font-family: var(--mono);
   display: inline-flex;
   border-radius: 4px;
@@ -113,7 +165,6 @@ code {
   background: var(--code-bg);
 }
 
-/* CV Sheet Layout Styles */
 .cv-section {
   margin-bottom: 22px;
 }
@@ -137,34 +188,27 @@ code {
   text-align: left;
 }
 
-.cv-item:last-child {
-  margin-bottom: 0;
+@media (max-width: 1024px) {
+  :root { font-size: 16px; }
+  h1 { font-size: 36px; margin: 20px 0; }
+  h2 { font-size: 20px; }
 }
 
 @media print {
-
-  nav,
-  .no-print,
-  #root>nav,
-  button,
-  a.no-print {
+  nav, .no-print, #root > nav, button, a.no-print {
     display: none !important;
   }
-
   @page {
     size: A4;
     margin: 1.5cm 1.5cm;
   }
-
-  html,
-  body {
+  html, body {
     background-color: #ffffff !important;
     color: #000000 !important;
     margin: 0 !important;
     padding: 0 !important;
     font-size: 11px !important;
   }
-
   #root {
     width: 100% !important;
     max-width: 100% !important;
@@ -174,9 +218,7 @@ code {
     padding: 0 !important;
     min-height: auto !important;
   }
-
-  :root,
-  :root.dark {
+  :root, :root.dark {
     --bg: #ffffff !important;
     --text-h: #000000 !important;
     --text: #2d3748 !important;
@@ -185,7 +227,6 @@ code {
     --accent: #4f46e5 !important;
     --accent-bg: #f0fdf4 !important;
   }
-
   #cv-preview-document.cv-sheet {
     box-shadow: none !important;
     border: none !important;
@@ -196,19 +237,15 @@ code {
     background-color: #ffffff !important;
     color: #000000 !important;
   }
-
-  .cv-item,
-  .cv-section {
+  .cv-item, .cv-section {
     page-break-inside: avoid;
     break-inside: avoid;
   }
-
   .cv-body-grid {
     display: flex !important;
     flex-direction: row !important;
     gap: 30px !important;
   }
-
   * {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;

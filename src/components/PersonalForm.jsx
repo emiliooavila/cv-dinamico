@@ -54,102 +54,123 @@ export default function PersonalForm() {
   };
 
   return (
-    <section style={{ border: '1px solid #ccc', padding: '20px', margin: '20px 0' }}>
-      <h2>Datos Personales</h2>
+    <section className="glass-panel" style={{ padding: '40px', margin: '30px auto', maxWidth: '800px', textAlign: 'left' }}>
+      <h2 style={{ marginBottom: '25px', color: 'var(--text-h)', fontWeight: '800' }}>Datos Personales</h2>
       
       <form onSubmit={validateForm}>
-        <div style={{ marginBottom: '15px', display: 'flex', alignItems: 'center', gap: '20px' }}>
-          {personalData.profileImage && (
+        <div style={{ marginBottom: '25px', display: 'flex', alignItems: 'center', gap: '25px', flexWrap: 'wrap' }}>
+          {personalData.profileImage ? (
             <img 
               src={personalData.profileImage} 
               alt="Perfil" 
-              style={{ width: '100px', height: '100px', borderRadius: '50%', objectFit: 'cover' }}
+              style={{ width: '120px', height: '120px', borderRadius: '50%', objectFit: 'cover', boxShadow: '0 4px 15px rgba(0,0,0,0.2)' }}
             />
+          ) : (
+            <div style={{ width: '120px', height: '120px', borderRadius: '50%', backgroundColor: 'rgba(0,0,0,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <span style={{ fontSize: '2rem', opacity: '0.3' }}>📷</span>
+            </div>
           )}
-          <div>
-            <label style={{ display: 'block', marginBottom: '5px' }}>Foto de Perfil (Archivo): </label>
+          <div style={{ flex: '1', minWidth: '250px' }}>
+            <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600', color: 'var(--text-h)' }}>Foto de Perfil (Archivo): </label>
             <input 
               type="file" 
               accept="image/*" 
-              onChange={handleImageUpload} 
+              onChange={handleImageUpload}
+              className="glass-input"
+              style={{ padding: '10px' }}
             />
-            <label style={{ display: 'block', marginTop: '10px', marginBottom: '5px' }}>O URL de la imagen: </label>
+            <label style={{ display: 'block', marginTop: '15px', marginBottom: '8px', fontWeight: '600', color: 'var(--text-h)' }}>O URL de la imagen: </label>
             <input 
               type="text" 
               name="profileImage" 
               value={personalData.profileImage.startsWith('data:image') ? '' : personalData.profileImage} 
               onChange={handleChange} 
               placeholder="https://..."
+              className="glass-input"
             />
-            {errors.profileImage && <p style={{ color: 'red', margin: 0 }}>{errors.profileImage}</p>}
+            {errors.profileImage && <p style={{ color: '#ff4d4f', margin: '5px 0 0 0', fontSize: '0.85rem' }}>{errors.profileImage}</p>}
           </div>
         </div>
 
-        <div style={{ marginBottom: '10px' }}>
-          <label>Nombre Completo: </label>
+        <div style={{ marginBottom: '20px' }}>
+          <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600', color: 'var(--text-h)' }}>Nombre Completo: </label>
           <input 
             type="text" 
             name="fullName" 
             value={personalData.fullName} 
             onChange={handleChange} 
+            className="glass-input"
+            placeholder="Ej. Juan Pérez"
           />
-          {errors.fullName && <p style={{ color: 'red', margin: 0 }}>{errors.fullName}</p>}
+          {errors.fullName && <p style={{ color: '#ff4d4f', margin: '5px 0 0 0', fontSize: '0.85rem' }}>{errors.fullName}</p>}
         </div>
 
-        <div style={{ marginBottom: '10px' }}>
-          <label>Profesión / Especialidad: </label>
+        <div style={{ marginBottom: '20px' }}>
+          <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600', color: 'var(--text-h)' }}>Profesión / Especialidad: </label>
           <input 
             type="text" 
             name="profession" 
             value={personalData.profession} 
             onChange={handleChange} 
+            className="glass-input"
+            placeholder="Ej. Desarrollador Web Full-Stack"
           />
-          {errors.profession && <p style={{ color: 'red', margin: 0 }}>{errors.profession}</p>}
+          {errors.profession && <p style={{ color: '#ff4d4f', margin: '5px 0 0 0', fontSize: '0.85rem' }}>{errors.profession}</p>}
         </div>
 
-        <div style={{ marginBottom: '10px' }}>
-          <label>Correo Electrónico: </label>
+        <div style={{ marginBottom: '20px' }}>
+          <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600', color: 'var(--text-h)' }}>Correo Electrónico: </label>
           <input 
             type="email" 
             name="email" 
             value={personalData.email} 
             onChange={handleChange} 
+            className="glass-input"
+            placeholder="correo@ejemplo.com"
           />
-          {errors.email && <p style={{ color: 'red', margin: 0 }}>{errors.email}</p>}
+          {errors.email && <p style={{ color: '#ff4d4f', margin: '5px 0 0 0', fontSize: '0.85rem' }}>{errors.email}</p>}
         </div>
 
-        <div style={{ marginBottom: '10px' }}>
-          <label>Ciudad / Ubicación: </label>
-          <input 
-            type="text" 
-            name="location" 
-            value={personalData.location} 
-            onChange={handleChange} 
-          />
+        <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+          <div style={{ flex: '1', minWidth: '200px', marginBottom: '20px' }}>
+            <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600', color: 'var(--text-h)' }}>Ciudad / Ubicación: </label>
+            <input 
+              type="text" 
+              name="location" 
+              value={personalData.location} 
+              onChange={handleChange} 
+              className="glass-input"
+              placeholder="Ciudad, País"
+            />
+          </div>
+
+          <div style={{ flex: '1', minWidth: '200px', marginBottom: '20px' }}>
+            <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600', color: 'var(--text-h)' }}>Teléfono: </label>
+            <input 
+              type="tel" 
+              name="phone" 
+              value={personalData.phone} 
+              onChange={handleChange} 
+              className="glass-input"
+              placeholder="+00 123 456 7890"
+            />
+          </div>
         </div>
 
-        <div style={{ marginBottom: '10px' }}>
-          <label>Teléfono: </label>
-          <input 
-            type="tel" 
-            name="phone" 
-            value={personalData.phone} 
-            onChange={handleChange} 
-          />
-        </div>
-
-        <div style={{ marginBottom: '10px' }}>
-          <label>Descripción / Perfil Profesional: </label>
+        <div style={{ marginBottom: '25px' }}>
+          <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600', color: 'var(--text-h)' }}>Descripción / Perfil Profesional: </label>
           <textarea 
             name="description" 
             value={personalData.description} 
             onChange={handleChange} 
-            rows="4"
-            style={{ width: '100%', resize: 'vertical' }}
+            rows="5"
+            className="glass-input"
+            style={{ resize: 'vertical' }}
+            placeholder="Escribe un breve resumen de tu experiencia y objetivos..."
           />
         </div>
 
-        <button type="submit">Validar y Guardar</button>
+        <button type="submit" className="glass-button">Validar y Guardar</button>
       </form>
     </section>
   );
