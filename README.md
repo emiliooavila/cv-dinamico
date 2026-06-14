@@ -4,7 +4,8 @@
 **Centro de Ciencias Básicas** **Departamento de Ciencias de la Computación** **Materia:** Tecnologías Web / React  
 **Profesor:** Ing. Irving Cardona  
 
-**Desarrollado por:** **Jorge Emilio Avila Valadez** (Ingeniería en Sistemas Computacionales, 6° Semestre)  
+**Desarrollado por:**
+* **Jorge Emilio Avila Valadez** 
 * **Diego Abraham Delgado Rodríguez** (Ingeniería en Sistemas Computacionales, 6° Semestre)  
 
 ---
