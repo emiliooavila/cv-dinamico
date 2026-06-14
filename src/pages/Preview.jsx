@@ -1,12 +1,35 @@
 import { useCV } from '../context/CVContext';
 import { Link } from 'react-router-dom';
+import html2pdf from 'html2pdf.js';
 
 export default function Preview() {
   const { cvData } = useCV();
   const { personalData, skills, projects, education, experience } = cvData;
 
-  const handlePrint = () => {
-    window.print();
+  const handleDownloadPDF = () => {
+    const element = document.getElementById('cv-preview-document');
+    const root = window.document.documentElement;
+    const isDark = root.classList.contains('dark');
+    
+    if (isDark) root.classList.remove('dark');
+    element.classList.remove('glass-panel');
+    element.style.border = 'none';
+    element.style.boxShadow = 'none';
+
+    const opt = {
+      margin:       15,
+      filename:     `${personalData.fullName ? personalData.fullName.replace(/\s+/g, '_') : 'DevProfile'}_CV.pdf`,
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 2, useCORS: true },
+      jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().set(opt).from(element).save().then(() => {
+      if (isDark) root.classList.add('dark');
+      element.classList.add('glass-panel');
+      element.style.border = '';
+      element.style.boxShadow = '';
+    });
   };
 
   const hasData = personalData.fullName || skills.length > 0 || projects.length > 0 || education.length > 0 || experience.length > 0;
@@ -39,7 +62,7 @@ export default function Preview() {
         </div>
         
         <button 
-          onClick={handlePrint}
+          onClick={handleDownloadPDF}
           disabled={!hasData}
           className="glass-button"
           style={{ 
@@ -53,8 +76,8 @@ export default function Preview() {
             cursor: hasData ? 'pointer' : 'not-allowed',
           }}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/><path d="M6 2h12v4H6z"/></svg>
-          Exportar a PDF
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+          Descargar PDF
         </button>
       </div>
 
